@@ -1,0 +1,9 @@
+1. We discussed combining outputs with shift and bitwise OR in section 2.2.1. Can we “add” (+) different outputs instead of performing bit wise OR operations (section 3 of code inside the main loop)? Why?
+
+We can use add instead of or by changing the bits to 1. This can only be done while the bits are not overlapping because if two overlapping bits are one they will create an overflow.
+
+2. (Optional): Do a brief research (perhaps on the web) on Bang-bang (Hysteresis) controllers in relation to equations 4 and 5. Answer the following questions in a few words:
+
+3. (Optional): Which part of equations 4 and 5 represents “hysteresis” in our system? How much is the value of “hysteresis”?
+
+4. (Optional): Why do we need hysteresis in our system? What will happen if its value is zero?

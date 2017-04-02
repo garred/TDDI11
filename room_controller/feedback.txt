@@ -1,0 +1,14 @@
+- Which program are you in (DI, EL, ...)?
+International Students
+
+- What are the positive aspects of this chapter?
+It is easy to understand.
+
+- What can be improved?
+Some explanation about why the hysteresis values should be that.
+
+- How much time did it take to complete (in hours)?
+About 3h.
+
+- Any other comments?
+Labs should start not earlier than 10... :)
