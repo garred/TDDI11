@@ -1,0 +1,27 @@
+
+1. stopTime is defined as a DWORD32 because is a double word of 32 bits that is used to store the value returned by the 
+function Now_Plus() that will allways return this type of output.
+
+2. finalCount is defined as a QWORD64 because is a quad word of 64 bits that is used to store the value returned by the 
+function CPU_Clock_Cycles() that will allways return this type of output.
+
+3. Now_Plus() calculates and returns the 32 bits unsigned count that will be in the system timer some number of seconds 
+in the future, specified by the argument (as said in the documentation).
+
+4. CPU_Clock_Cycles() returns a 64 bits count of CPU clock cycles since the processor was reset as said in the documentation.
+
+5. x represents the cycles that happens in 1 second (xM represent the megacycles per second).
+
+6. Miliseconds() return the 32 bits unsigned count of miliseconds that have elapsed since the program execution began as said in the documentation.
+
+7.1. Yes.
+
+7.2. No.
+
+7.3. In the first case (Now_Plus()) the function used to calculate the time implies more calculation than in the second case, so it takes more time to execute.
+
+7.4. The second approach (Miliseconds()) is faster so it should be more accurate. 
+
+8. The difference is due to the lines 52 and 53, that makes a delay of 2345 ms. 
+
+9. The result of multipliying 1000000 to numbers takes  65 miliseconds /10^6  = 65 nanoseconds.
