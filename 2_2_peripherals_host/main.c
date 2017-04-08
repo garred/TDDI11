@@ -7,7 +7,7 @@
 // gcc main.c -lm -lX11
 // ./a.out
 // To exit:
-// ctrl+c 
+// ctrl+c
 
 
 int main(int argc, char **argv)
@@ -17,14 +17,14 @@ int main(int argc, char **argv)
 	bool blinkOn = false;
 	int horizontalPosition, verticalPosition;
 	int horizontalMotion, verticalMotion;
-	double combinedMotion = 0; 
-	double motionMetric = 0; 	
-	static double motionThreshold = 90;
+	double combinedMotion = 0;
+	double motionMetric = 0;
+	static double motionThreshold = 10;
 	static double alpha = 0.99;
 	double beta = 1 - alpha;
-	struct timeval  timeReadOut;	
+	struct timeval  timeReadOut;
 	long double timerValueSeconds = 0;
-	static long double blinkHalfCycleSeconds = 2;
+	static long double blinkHalfCycleSeconds = 0.05;
 	long double nextActionTime = 0;
 
 	// initialize environment for listening to Mouse
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	window = DefaultRootWindow(display);
 	XAllowEvents(display, AsyncBoth, CurrentTime);
 	XGrabPointer(display, window, 1, PointerMotionMask | ButtonPressMask | ButtonReleaseMask, GrabModeAsync, GrabModeAsync, None, None, CurrentTime);
-	
+
 	// initialize for time-based actions
 	gettimeofday(&timeReadOut, NULL);
 	timerValueSeconds = (long double)timeReadOut.tv_sec + (long double)timeReadOut.tv_usec/1000000.0;
@@ -69,9 +69,9 @@ int main(int argc, char **argv)
 
 		gettimeofday(&timeReadOut, NULL);
 		timerValueSeconds = (long double)timeReadOut.tv_sec + (long double)timeReadOut.tv_usec/1000000.0;
-		//printf("Current timer value is %Lf seconds\n", timerValueSeconds); //for debug		
+		//printf("Current timer value is %Lf seconds\n", timerValueSeconds); //for debug
 		if (timerValueSeconds > nextActionTime)
-		{	
+		{
 			nextActionTime = timerValueSeconds + blinkHalfCycleSeconds;
 			fflush(stdout);
 			if(blinkOn)
@@ -79,8 +79,8 @@ int main(int argc, char **argv)
 			else
 				printf(".");
 			blinkOn = !blinkOn;
-			fflush(stdout);	
-		}	  
+			fflush(stdout);
+		}
 	}
 	return 0;
 }
