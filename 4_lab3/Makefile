@@ -1,5 +1,5 @@
-OBJ    = main.o llmultiply.o
-CFLAGS = -O3
+OBJ    = main.o serial.o inbound.o outbound.o
+CFLAGS = -O0
 
 COURSE   = /home/TDDI11/sw
 LDSCRIPT = $(COURSE)/lib/link.cmd
@@ -14,12 +14,9 @@ ASFLAGS  = -f elf32
 
 embedded.bin: $(OBJ)
 	$(LD) $(OBJ) $(LIBS) $(LDFLAGS)
-
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
-
 %.o: %.asm
 	$(AS) $(ASFLAGS) $<
-
 clean:
 	\rm -f embedded.bin *~ *.o link.map

@@ -19,12 +19,12 @@ int main(int argc, char **argv)
 	int horizontalMotion, verticalMotion;
 	double combinedMotion = 0;
 	double motionMetric = 0;
-	static double motionThreshold = 10;
-	static double alpha = 0.99;
+	static double motionThreshold = 50;
+	static double alpha = 0.5;
 	double beta = 1 - alpha;
 	struct timeval  timeReadOut;
 	long double timerValueSeconds = 0;
-	static long double blinkHalfCycleSeconds = 0.05;
+	static long double blinkHalfCycleSeconds = 0.5;
 	long double nextActionTime = 0;
 
 	// initialize environment for listening to Mouse
